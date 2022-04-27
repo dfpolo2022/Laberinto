@@ -43,8 +43,10 @@ public class Grid : ScriptableObject
                 var p = new Vector2(i, j) * cellSize;
                 cell = Instantiate(cellPrefab, p, Quaternion.identity);
                 cell.Init(this, (int)p.x, (int)p.y, true, false, false, false);
+
                 cell.SetColor(Color.blue); 
                 gridArray[i, j] = cell;
+
             }
         }
 

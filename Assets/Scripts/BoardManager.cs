@@ -36,6 +36,15 @@ public class BoardManager : MonoBehaviour
                 int y = node.y;
                 Instantiate(EnemyPrefab, new Vector2(x, y), Quaternion.identity);
             }
+            if (Random.Range(0, 10) <= 2)
+            {
+                if (node.isEnd == false && node.isStart == false && node.isEnemySpawn == false)
+                {
+                    node.SetWalkable(false);
+                    node.SetColor(Color.black);
+                }
+
+            }
         }
     }
 
@@ -45,18 +54,12 @@ public class BoardManager : MonoBehaviour
     {
         List<Cell> path = PathManager.Instance.FindPath(grid, (int)player.GetPosition.x, (int)player.GetPosition.y, x, y);
 
-        //Debug.Log("" + path.Count);
-
         player.SetPath(path);
     }
 
     public void MoveEnemy(Enemy enemy, int x, int y)
     {
-        List<Cell> path = PathManager.Instance.FindPath(grid, (int)player.GetPosition.x, (int)player.GetPosition.y, x, y);
-
-        //List<Cell> path2 = PathManager.Instance.FindPathEnemy(enemy, grid, x, y, (int)player.GetPosition.x, (int)player.GetPosition.y);
-
-        Debug.Log("" + path.Count);
+        List<Cell> path = PathManager.Instance.FindPathEnemy(enemy, grid, x, y, (int)player.GetPosition.x, (int)player.GetPosition.y);
 
         enemy.SetPath(path);
     }

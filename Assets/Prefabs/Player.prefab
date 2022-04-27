@@ -100,7 +100,6 @@ MonoBehaviour:
   left: 276
   right: 275
   down: 274
-  moveSpeed: 2
   currentCell: {fileID: 0}
   currentCellX: 0
   currentCellY: 0

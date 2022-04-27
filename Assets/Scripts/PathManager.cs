@@ -128,14 +128,14 @@ public class PathManager : MonoBehaviour
             if (currentNode == endCell)
             {
                 // Reached final node
-                enemy.currentCell = currentNode;
+                Player.Instance.currentCell = currentNode;
                 Cell[,] gridArray = Grid.Instance.getArray();
                 foreach (Cell cell in gridArray)
                 {
                     if (cell == currentNode)
                     {
-                        enemy.currentCellX = cell.x;
-                        enemy.currentCellY = cell.y;
+                        Player.Instance.currentCellX = cell.x;
+                        Player.Instance.currentCellY = cell.y;
                     }
                 }
                 return CalculatePath(endCell);

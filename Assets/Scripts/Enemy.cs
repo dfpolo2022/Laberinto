@@ -43,20 +43,22 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //BoardManager.Instance.MoveEnemy(this, Player.Instance.currentCellX, Player.Instance.currentCellY);
+        //BoardManager.Instance.MoveEnemy(this, currentCellX, currentCellY);
+        
         EnemyMove();
     }
 
     void HolaFunction()
     {
         Debug.Log("Hola");
-        BoardManager.Instance.MoveEnemy(this, Player.Instance.currentCellX, Player.Instance.currentCellY);
+        BoardManager.Instance.MoveEnemy(this, currentCellX, currentCellY);
     }
 
     public void SetPath(List<Cell> path)
     {
         //ResetPosition();
         waypointIndex = 0;
+        //path.Reverse();
         this.path = path;
     }
 
