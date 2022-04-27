@@ -45,12 +45,18 @@ public class BoardManager : MonoBehaviour
     {
         List<Cell> path = PathManager.Instance.FindPath(grid, (int)player.GetPosition.x, (int)player.GetPosition.y, x, y);
 
+        //Debug.Log("" + path.Count);
+
         player.SetPath(path);
     }
 
     public void MoveEnemy(Enemy enemy, int x, int y)
     {
-        List<Cell> path = PathManager.Instance.FindPathEnemy(enemy, grid, x, y, (int)player.GetPosition.x, (int)player.GetPosition.y);
+        List<Cell> path = PathManager.Instance.FindPath(grid, (int)player.GetPosition.x, (int)player.GetPosition.y, x, y);
+
+        //List<Cell> path2 = PathManager.Instance.FindPathEnemy(enemy, grid, x, y, (int)player.GetPosition.x, (int)player.GetPosition.y);
+
+        Debug.Log("" + path.Count);
 
         enemy.SetPath(path);
     }

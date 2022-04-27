@@ -37,13 +37,14 @@ public class Enemy : MonoBehaviour
                 this.currentCellY = node.y;
             }
         }
-        InvokeRepeating("EnemyMove", 2, (float)2);
+        InvokeRepeating("HolaFunction", 2, (float)2);
     }
 
     // Update is called once per frame
     void Update()
     {
-        BoardManager.Instance.MoveEnemy(this, Player.Instance.currentCellX, Player.Instance.currentCellY);
+        //BoardManager.Instance.MoveEnemy(this, Player.Instance.currentCellX, Player.Instance.currentCellY);
+        EnemyMove();
     }
 
     void HolaFunction()
@@ -101,7 +102,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        Debug.Log("" + path.Count);
+        //Debug.Log("" + path.Count);
 
     }
 }
