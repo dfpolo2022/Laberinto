@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Button : MonoBehaviour
 {
     public string nextScene;
+    public bool resetter;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,19 @@ public class Button : MonoBehaviour
 
     private void OnMouseDown()
     {
-        ChangeScene();
+        if (resetter)
+        {
+            PlayerPrefs.SetInt("highLevel", 0);
+            PlayerPrefs.SetString("bestTime", "");
+            PlayerPrefs.SetFloat("bestTimeFloat", 0);
+            UIManager.Instance.highLevel.text = "Highest Level: " + PlayerPrefs.GetInt("highLevel");
+            UIManager.Instance.bestTime.text = "Best Time: " + PlayerPrefs.GetString("bestTime");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("winner", 0);
+            ChangeScene();
+        }
+        
     }
 }

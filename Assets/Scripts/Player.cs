@@ -103,6 +103,7 @@ public class Player : MonoBehaviour
                     PlayerPrefs.SetFloat("bestTimeFloat", Timer.Instance.timePassed);
                     PlayerPrefs.SetString("bestTime", Timer.Instance.timerText.text);
                 }
+                PlayerPrefs.SetInt("winner", 1);
                 PlayerPrefs.SetInt("highLevel", 4);
                 SceneManager.LoadScene("StartScene");
             }
