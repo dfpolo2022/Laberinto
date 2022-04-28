@@ -241,6 +241,7 @@ MonoBehaviour:
   levelNumber: {fileID: 1167312180}
   highLevel: {fileID: 0}
   bestTime: {fileID: 0}
+  winMessage: {fileID: 0}
 --- !u!114 &409913568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -445,6 +446,9 @@ MonoBehaviour:
   PlayerPrefab: {fileID: 6811782176416870102, guid: 8fa1d2f7c85ccce4dacc80f211887abb, type: 3}
   EnemyPrefab: {fileID: 2649178644112456089, guid: 293170072e0e902409069526e1922590, type: 3}
   n: 10
+  start: {fileID: 0}
+  end: {fileID: 0}
+  m: 10
 --- !u!4 &731883412
 Transform:
   m_ObjectHideFlags: 0

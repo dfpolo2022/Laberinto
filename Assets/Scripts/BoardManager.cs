@@ -20,8 +20,7 @@ public class BoardManager : MonoBehaviour
     public Cell start;
     public Cell end;
 
-
-    private bool walkablePaths = true;
+    public int m;
 
     private void Awake()
     {
@@ -52,15 +51,21 @@ public class BoardManager : MonoBehaviour
             {
                 end = node;
             }
-            if (Random.Range(0, 10) <= 2)
-            {
+        }
+
+        int i = 0;
+
+        while(i<m)
+        {
+            int random = Random.Range(0, n * n - 1);
+            Cell node = grid.getArray()[random / n, random % n];
                 if (node.isEnd == false && node.isStart == false && node.isEnemySpawn == false)
                 {
                     node.SetWalkable(false);
                     node.SetColor(Color.black);
+                    i++;
                 }
-
-            }
+            
         }
     }
 
