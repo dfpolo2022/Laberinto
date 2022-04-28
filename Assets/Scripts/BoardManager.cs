@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BoardManager : MonoBehaviour
 {
@@ -11,6 +12,16 @@ public class BoardManager : MonoBehaviour
     private Grid grid;
     private Player player;
     public int n;
+
+    private int randomNode;
+    private int randomNodeX;
+    private int randomNodeY;
+
+    public Cell start;
+    public Cell end;
+
+
+    private bool walkablePaths = true;
 
     private void Awake()
     {
@@ -26,6 +37,7 @@ public class BoardManager : MonoBehaviour
         {
             if (node.isStart)
             {
+                start = node;
                 int x = node.x;
                 int y = node.y;
                 player = Instantiate(PlayerPrefab, new Vector2(x, y), Quaternion.identity);
@@ -35,6 +47,10 @@ public class BoardManager : MonoBehaviour
                 int x = node.x;
                 int y = node.y;
                 Instantiate(EnemyPrefab, new Vector2(x, y), Quaternion.identity);
+            }
+            if (node.isEnd)
+            {
+                end = node;
             }
             if (Random.Range(0, 10) <= 2)
             {

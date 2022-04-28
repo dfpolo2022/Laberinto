@@ -44,7 +44,16 @@ public class Player : MonoBehaviour
                 currentCellX = currentCell.x;
                 currentCellY = currentCell.y;
             }
-        }   
+        }
+        if(PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, BoardManager.Instance.end.x, BoardManager.Instance.end.y) != null)
+        {
+            
+        }
+        else
+        {
+            SceneManager.UnloadSceneAsync("SampleScene");
+            SceneManager.LoadScene("SampleScene");
+        }
     }
 
     // Update is called once per frame
@@ -79,7 +88,7 @@ public class Player : MonoBehaviour
 
     public void VerifyEnd()
     {
-        if (currentCell.isEnd)
+        if (this.transform.position == BoardManager.Instance.end.transform.position)
         {
             int i = PlayerPrefs.GetInt("stage");
             if(i == 4)

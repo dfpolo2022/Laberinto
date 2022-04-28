@@ -97,6 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0271ae096cad194cad5a43c980e662e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  up: 273
+  left: 276
+  right: 275
+  down: 274
   currentCell: {fileID: 0}
   currentCellX: 0
   currentCellY: 0

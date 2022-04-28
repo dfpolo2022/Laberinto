@@ -255,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1115153361}
   timerActive: 0
+  timePassed: 0
 --- !u!1 &427542557
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +444,7 @@ MonoBehaviour:
   CellPrefab: {fileID: 6284266403672510058, guid: 90e6838208750154b875d6b3f1cdb916, type: 3}
   PlayerPrefab: {fileID: 6811782176416870102, guid: 8fa1d2f7c85ccce4dacc80f211887abb, type: 3}
   EnemyPrefab: {fileID: 2649178644112456089, guid: 293170072e0e902409069526e1922590, type: 3}
-  n: 11
+  n: 10
 --- !u!4 &731883412
 Transform:
   m_ObjectHideFlags: 0

@@ -9,6 +9,10 @@ public class Enemy : MonoBehaviour
     List<Cell> path;
     [SerializeField]
 
+    public KeyCode up;
+    public KeyCode left;
+    public KeyCode right;
+    public KeyCode down;
 
     public Vector2 GetPosition => transform.position;
 
@@ -37,21 +41,52 @@ public class Enemy : MonoBehaviour
                 this.currentCellY = node.y;
             }
         }
-        InvokeRepeating("HolaFunction", 2, (float)0.5);
-        InvokeRepeating("EnemyMove", 2, (float)1);
+        
+        if (PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, BoardManager.Instance.end.x, BoardManager.Instance.end.y) != null || PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, BoardManager.Instance.start.x, BoardManager.Instance.start.y) != null)
+        {
+
+        }
+        else
+        {
+            SceneManager.UnloadSceneAsync("SampleScene");
+            SceneManager.LoadScene("SampleScene");
+        }
+
+        //InvokeRepeating("EnemyMove", 0, (float)1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //BoardManager.Instance.MoveEnemy(this, currentCellX, currentCellY);
-
-        //EnemyMove();
+        HolaFunction();
+        
+        if (Input.GetKeyDown(up))
+        {
+            StartCoroutine(Coroutine());
+        }
+        if (Input.GetKeyDown(down))
+        {
+            StartCoroutine(Coroutine());
+        }
+        if (Input.GetKeyDown(left))
+        {
+            StartCoroutine(Coroutine());
+        }
+        if (Input.GetKeyDown(right))
+        {
+            StartCoroutine(Coroutine());
+        }
 
         UpdateCell();
 
         VerifyPlayer();
 
+    }
+
+    IEnumerator Coroutine()
+    {
+        yield return new WaitForSeconds((float)0.1);
+        EnemyMove();
     }
 
     void HolaFunction()
