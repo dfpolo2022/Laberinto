@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         Cell[,] nodes = Grid.Instance.getArray();
 
         foreach (Cell node in Grid.Instance.getArray())
@@ -37,29 +37,63 @@ public class Enemy : MonoBehaviour
                 this.currentCellY = node.y;
             }
         }
-        InvokeRepeating("HolaFunction", 2, (float)2);
+        InvokeRepeating("HolaFunction", 2, (float)0.5);
+        InvokeRepeating("EnemyMove", 2, (float)1);
     }
 
     // Update is called once per frame
     void Update()
     {
         //BoardManager.Instance.MoveEnemy(this, currentCellX, currentCellY);
-        
-        EnemyMove();
+
+        //EnemyMove();
+
+        UpdateCell();
+
+        VerifyPlayer();
+
     }
 
     void HolaFunction()
     {
-        Debug.Log("Hola");
         BoardManager.Instance.MoveEnemy(this, currentCellX, currentCellY);
     }
 
     public void SetPath(List<Cell> path)
     {
         //ResetPosition();
-        waypointIndex = 0;
-        //path.Reverse();
+        waypointIndex = path.Count-1;
         this.path = path;
+        foreach(Cell node in path)
+        {
+            Debug.Log(node.ToString());
+        }
+    }
+
+    public void VerifyPlayer()
+    {
+        if(this.transform.position == Player.Instance.transform.position)
+        {
+            if(PlayerPrefs.GetInt("highLevel")< PlayerPrefs.GetInt("stage"))
+            {
+                PlayerPrefs.SetInt("highLevel", PlayerPrefs.GetInt("stage"));
+            }
+            SceneManager.LoadScene("StartScene");
+            
+        }
+    }
+
+    public void UpdateCell()
+    {
+        foreach(Cell node in Grid.Instance.getArray())
+        {
+            if(node.transform.position == this.transform.position)
+            {
+                this.currentCell = node;
+                this.currentCellX = node.x;
+                this.currentCellY = node.y;
+            }
+        }
     }
 
     void EnemyMove()
@@ -69,36 +103,16 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        /*if (path[1] == Grid.Instance.getArray()[path[0].x, path[0].y + 1])
-        {
-            BoardManager.Instance.MoveEnemy(this, currentCellX, currentCellY + 1);
-        }
-
-        if (path[1] == Grid.Instance.getArray()[path[0].x, path[0].y - 1])
-        {
-            BoardManager.Instance.MoveEnemy(this, currentCellX, currentCellY - 1);
-        }
-
-        if (path[1] == Grid.Instance.getArray()[path[0].x + 1, path[0].y])
-        {
-            BoardManager.Instance.MoveEnemy(this, currentCellX + 1, currentCellY);
-        }
-
-        if (path[1] == Grid.Instance.getArray()[path[0].x - 1, path[0].y])
-        {
-            BoardManager.Instance.MoveEnemy(this, currentCellX - 1, currentCellY);
-        }*/
-
         if (waypointIndex <= path.Count - 1)
         {
             // Move player from current waypoint to the next one
             // using MoveTowards method
-            transform.position = path[waypointIndex].transform.position;
+            transform.position = path[1].transform.position;
 
             // If player reaches position of waypoint he walked towards
             // then waypointIndex is increased by 1
             // and player starts to walk to the next waypoint
-            if (transform.position == path[waypointIndex].transform.position)
+            if (transform.position == path[1].transform.position)
             {
                 waypointIndex += 1;
             }
