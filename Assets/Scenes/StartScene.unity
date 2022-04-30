@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: 630522253}
   - component: {fileID: 630522252}
   - component: {fileID: 630522254}
+  - component: {fileID: 630522255}
   m_Layer: 5
   m_Name: mText
   m_TagString: Untagged
@@ -442,7 +443,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -77.23061, y: -9.411751}
+  m_AnchoredPosition: {x: -100, y: -10}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630522252
@@ -465,7 +466,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'M: '
+  m_text: 'M: 15'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 56b804137f26b74468a2829851d01519, type: 2}
   m_sharedMaterial: {fileID: -5223202927490336466, guid: 56b804137f26b74468a2829851d01519, type: 2}
@@ -554,6 +555,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3047be36e8a48cf4cac8b00e332c4ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &630522255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 630522250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08bfea1760d6894cb1561f0a853cead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  n: 0
 --- !u!1 &891087421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2247,7 +2261,31 @@ MonoBehaviour:
   m_Value: 15
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1204597367}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: GetObstacleSize
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 630522255}
+        m_TargetAssemblyTypeName: UpdateText, Assembly-CSharp
+        m_MethodName: ChangeValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1785176726
 GameObject:
   m_ObjectHideFlags: 0
@@ -2338,7 +2376,31 @@ MonoBehaviour:
   m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1204597367}
+        m_TargetAssemblyTypeName: Button, Assembly-CSharp
+        m_MethodName: GetGridSize
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2033435722}
+        m_TargetAssemblyTypeName: UpdateText, Assembly-CSharp
+        m_MethodName: ChangeValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1837228351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2596,6 +2658,7 @@ GameObject:
   - component: {fileID: 2033435720}
   - component: {fileID: 2033435719}
   - component: {fileID: 2033435721}
+  - component: {fileID: 2033435722}
   m_Layer: 5
   m_Name: nText
   m_TagString: Untagged
@@ -2619,7 +2682,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -77.23061, y: -24.592766}
+  m_AnchoredPosition: {x: -100.00001, y: -15}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2033435719
@@ -2642,7 +2705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'N: '
+  m_text: 'N: 10'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 56b804137f26b74468a2829851d01519, type: 2}
   m_sharedMaterial: {fileID: -5223202927490336466, guid: 56b804137f26b74468a2829851d01519, type: 2}
@@ -2731,3 +2794,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3047be36e8a48cf4cac8b00e332c4ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2033435722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033435717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08bfea1760d6894cb1561f0a853cead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  n: 1

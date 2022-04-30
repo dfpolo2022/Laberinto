@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
                 currentCellY = currentCell.y;
             }
         }
-        if(PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, BoardManager.Instance.end.x, BoardManager.Instance.end.y) != null)
+        if(PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, r.Instance.end.x, r.Instance.end.y) != null)
         {
             
         }
@@ -61,19 +61,19 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(up))
         {
-            BoardManager.Instance.MoveCell(currentCellX, currentCellY+1);
+            r.Instance.MoveCell(currentCellX, currentCellY+1);
         }
         if (Input.GetKeyDown(down))
         {
-            BoardManager.Instance.MoveCell(currentCellX, currentCellY - 1);
+            r.Instance.MoveCell(currentCellX, currentCellY - 1);
         }
         if (Input.GetKeyDown(left))
         {
-            BoardManager.Instance.MoveCell(currentCellX - 1, currentCellY);
+            r.Instance.MoveCell(currentCellX - 1, currentCellY);
         }
         if (Input.GetKeyDown(right))
         {
-            BoardManager.Instance.MoveCell(currentCellX + 1, currentCellY);
+            r.Instance.MoveCell(currentCellX + 1, currentCellY);
         }
         Move();
         VerifyEnd();
@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
     public void VerifyEnd()
     {
-        if (this.transform.position == BoardManager.Instance.end.transform.position)
+        if (this.transform.position == r.Instance.end.transform.position)
         {
             int i = PlayerPrefs.GetInt("stage");
             if(i == 4)

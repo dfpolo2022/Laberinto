@@ -11,6 +11,8 @@ public class Button : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerPrefs.SetInt("nxn", 10);
+        PlayerPrefs.SetInt("m", 15);
         PlayerPrefs.SetFloat("totalTime", 0);
         PlayerPrefs.SetString("timer", "00:00:00");
         PlayerPrefs.SetInt("stage", 1);
@@ -43,5 +45,15 @@ public class Button : MonoBehaviour
             ChangeScene();
         }
         
+    }
+
+    public void GetGridSize(float size)
+    {
+        PlayerPrefs.SetInt("nxn", (int)size);
+    }
+
+    public void GetObstacleSize(float size)
+    {
+        PlayerPrefs.SetInt("m", (int)size);
     }
 }

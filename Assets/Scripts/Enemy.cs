@@ -42,7 +42,7 @@ public class Enemy : MonoBehaviour
             }
         }
         
-        if (PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, BoardManager.Instance.end.x, BoardManager.Instance.end.y) != null || PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, BoardManager.Instance.start.x, BoardManager.Instance.start.y) != null)
+        if (PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, r.Instance.end.x, r.Instance.end.y) != null || PathManager.Instance.FindPath(Grid.Instance, currentCellX, currentCellY, r.Instance.start.x, r.Instance.start.y) != null)
         {
 
         }
@@ -91,7 +91,7 @@ public class Enemy : MonoBehaviour
 
     void HolaFunction()
     {
-        BoardManager.Instance.MoveEnemy(this, currentCellX, currentCellY);
+        r.Instance.MoveEnemy(this, currentCellX, currentCellY);
     }
 
     public void SetPath(List<Cell> path)

@@ -3,24 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class BoardManager : MonoBehaviour
+public class r : MonoBehaviour
 {
-    public static BoardManager Instance;
+    public static r Instance;
     [SerializeField] private Cell CellPrefab;
     [SerializeField] private Player PlayerPrefab;
     [SerializeField] private Enemy EnemyPrefab;
     private Grid grid;
     private Player player;
-    public int n;
-
-    private int randomNode;
-    private int randomNodeX;
-    private int randomNodeY;
 
     public Cell start;
     public Cell end;
-
-    public int m;
 
     private void Awake()
     {
@@ -30,7 +23,7 @@ public class BoardManager : MonoBehaviour
     //Crear grid
     private void Start()
     {
-        grid = new Grid(n, n, 1, CellPrefab);
+        grid = new Grid(PlayerPrefs.GetInt("nxn"), PlayerPrefs.GetInt("nxn"), 1, CellPrefab);
 
         foreach (Cell node in grid.getArray())
         {
@@ -55,11 +48,11 @@ public class BoardManager : MonoBehaviour
 
         int i = 0;
 
-        while(i<m)
+        while(i< PlayerPrefs.GetInt("m"))
         {
-            int random = Random.Range(0, n * n - 1);
-            Cell node = grid.getArray()[random / n, random % n];
-                if (node.isEnd == false && node.isStart == false && node.isEnemySpawn == false)
+            int random = Random.Range(0, PlayerPrefs.GetInt("nxn") * PlayerPrefs.GetInt("nxn") - 1);
+            Cell node = grid.getArray()[random / PlayerPrefs.GetInt("nxn"), random % PlayerPrefs.GetInt("nxn")];
+                if (node.isEnd == false && node.isStart == false && node.isEnemySpawn == false && node.isWalkable == true)
                 {
                     node.SetWalkable(false);
                     node.SetColor(Color.black);
