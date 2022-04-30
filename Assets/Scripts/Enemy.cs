@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
             SceneManager.LoadScene("SampleScene");
         }
 
-        //InvokeRepeating("EnemyMove", 0, (float)1);
+        InvokeRepeating("EnemyMove", 1, (float)0.5);
     }
 
     // Update is called once per frame
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
     {
         HolaFunction();
         
-        if (Input.GetKeyDown(up))
+        /*if (Input.GetKeyDown(up))
         {
             StartCoroutine(Coroutine());
         }
@@ -75,7 +75,7 @@ public class Enemy : MonoBehaviour
         if (Input.GetKeyDown(right))
         {
             StartCoroutine(Coroutine());
-        }
+        }*/
 
         UpdateCell();
 
