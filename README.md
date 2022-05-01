@@ -3,3 +3,6 @@
   <p align="center">
   </p>
 </div>
+
+**Video explicativo del proyecto:**
+https://drive.google.com/file/d/1q7JESD_wfolyHR4kAcTHXURtPjcldndn/view?usp=sharing
